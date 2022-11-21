@@ -15,27 +15,30 @@ let coups           = 0;
 let nombreChoisi;
 
 // Etape 6 - Créer la fonction vérifier
-
 function verifier(nombre) {
   
-  let instruction = document.createElement('div')
-  
+  let instruction = document.createElement('div');
+
   if(nombre < nombreAleatoire) {
-    instruction.textContent = `#${coups} ( ${nombre} ) C'est moins !`
-    instruction.className = "instruction moins"
+    // C'est plus
+    instruction.textContent = "#" + coups + " ( " + nombre + " ) C'est plus !";
+    instruction.className = "instruction plus";
   }
   else if(nombre > nombreAleatoire) {
-    instruction.textContent = `#${coups} ( ${nombre} ) C'est plus !`
-        instruction.className = "instruction plus"
+    // C'est moins
+    instruction.textContent = "#" + coups + " ( " + nombre + " ) C'est moins !";
+    instruction.className = "instruction moins";
   }
   else {
-    instruction.textContent = `#${coups} ( ${nombre} ) Félicitation vous avez trouver le juste prix !`
-        instruction.className = "instruction fini"
+    // Félicitations vous avez trouvé le juste prix !
+    instruction.textContent = "#" + coups + " ( " + nombre + " ) Félicitations vous avez trouvé le juste prix !";
+    instruction.className = "instruction fini";
     input.disabled = true;
   }
-  
-  document.querySelector("#instructions").prepend(instruction);
-  
+
+  // Ajouter l'élément devant les autres
+document.querySelector('#instructions').prepend(instruction);
+
 }
 
 // Etape 4 - Vérifier que l'utilisateur donne bien un nombre
